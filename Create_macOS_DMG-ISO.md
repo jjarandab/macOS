@@ -4,25 +4,38 @@
 
 2. On macOS Terminal, create a disk image DMG
    
-   `hdiutil create -o /tmp/Mojave -size 6000m -volname Mojave -layout SPUD -fs HFS+J`
-
+   ```
+   hdiutil create -o /tmp/Mojave -size 6000m -volname Mojave -layout SPUD -fs HFS+J
+   ```
+   
 3. Mount the DMG
    
-   `hdiutil attach /tmp/Mojave.dmg -noverify -mountpoint /Volumes/Mojave`
-
+   ```shell
+   hdiutil attach /tmp/Mojave.dmg -noverify -mountpoint /Volumes/Mojave
+   ```
+   
 4. Create the macOS installer application on the mounted DMG
    
-   `sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/Mojave --nointeraction`
-
+   ```shell
+   sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/Mojave --nointeraction
+   ```
+   
 5. Unmount the DMG
    
+   ```shell
    hdiutil detach /volumes/Install\ macOS\ Mojave
-
+   ```
+   
 6. Convert the DMG to an CDR
    
-   `hdiutil convert /tmp/Mojave.dmg -format UDTO -o ~/Desktop/Mojave.cdr`
-
+   ``` shell
+   hdiutil convert /tmp/Mojave.dmg -format UDTO -o ~/Desktop/Mojave.cdr
+   
 7. Rename the CDR to ISO; move DMG file to desktop
    
-   `mv ~/Desktop/Mojave.cdr ~/Desktop/Install macOS Mojave.iso 
-   mv ~/tmp/Mojave.dmg ~/Desktop/Install macOS Mojave.dmg`
+   ``` shell
+   mv ~/Desktop/Mojave.cdr ~/Desktop/Install macOS Mojave.iso 
+   mv ~/tmp/Mojave.dmg ~/Desktop/Install macOS Mojave.dmg
+   ```
+   
+   
